@@ -28,12 +28,21 @@ public class MainActivity extends AppCompatActivity {
     private EditText oldEmail, password, newPassword;
     private ProgressBar progressBar;
     private FirebaseAuth auth;
+    Button button2;
 
+    public void track (View view){
+        Intent intent = new Intent(MainActivity.this, TrackingActivity.class);
+        startActivity(intent);
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        button2 = (Button) findViewById(R.id.button2);
+
+
 //get firebase auth instance
         auth = FirebaseAuth.getInstance();
         email = (TextView) findViewById(R.id.useremail);
@@ -232,4 +241,18 @@ public class MainActivity extends AppCompatActivity {
             auth.removeAuthStateListener(authListener);
         }
     }
+
+   /* public void track() {
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, TrackingActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+    }*/
+
 }
